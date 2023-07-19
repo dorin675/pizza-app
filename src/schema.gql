@@ -1,0 +1,43 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Incredient {
+  id: ID!
+  name: String!
+  pizzas: [Pizza!]!
+}
+
+"""Pizza model"""
+type Pizza {
+  id: ID!
+  name: String!
+  incredients: [Incredient!]!
+  price: Float!
+  weight: Float!
+}
+
+type Query {
+  pizzas: [Pizza!]!
+  pizza(id: ID!): Pizza!
+}
+
+type Mutation {
+  createPizza(createPizzaInput: PizzaInput!): Pizza!
+  updatePizza(updatePizzaInput: UpdatePizzaInput!, id: ID!): Pizza!
+  deletePizza(id: ID!): Pizza!
+}
+
+input PizzaInput {
+  name: String!
+  incredients: [String!]!
+  price: Float!
+  weight: Float!
+}
+
+input UpdatePizzaInput {
+  name: String
+  incredients: [String!]
+  price: Float
+  weight: Float
+}
